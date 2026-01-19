@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: url('background.jpg') no-repeat center center fixed;
+    background: url('arrière-plan.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #333;
 }
@@ -44,7 +44,7 @@ header {
 button {
     padding: 10px;
     margin-top: 10px;
-    background-color: #ff4081;
+   background-color: #ff4081;
     color: white;
     border: none;
     border-radius: 5px;
@@ -80,3 +80,4 @@ footer {
     width: 100%;
     bottom: 0;
 }
+
