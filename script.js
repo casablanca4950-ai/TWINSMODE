@@ -17,9 +17,11 @@ function removeFromCart(index) {
 function updateCart() {
     cartItems.innerHTML = "";
     let total = 0;
+    let details = "";
 
     cart.forEach((item, index) => {
         total += item.price;
+        details += item.name + " - " + item.price + " DH\n";
 
         let li = document.createElement("li");
         li.innerHTML = `
@@ -31,12 +33,5 @@ function updateCart() {
 
     cartCount.textContent = cart.length;
     totalEl.textContent = total;
-
-    let details = "";
-    cart.forEach(item => {
-        details += item.name + " - " + item.price + " DH\n";
-    });
-    details += "\nTotal : " + total + " DH";
-
-    orderDetails.value = details;
+    orderDetails.value = details + "\nTotal : " + total + " DH";
 }
