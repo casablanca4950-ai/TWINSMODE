@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Twins Mode</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Twins Mode</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
-    <h1>Twins Mode</h1>
+    <div class="logo-area">
+        <img src="logo.png" class="logo" alt="Twins Mode">
+        <h1>Twins Mode</h1>
+    </div>
     <div class="cart-info">
         🛒 Panier : <span id="cart-count">0</span>
     </div>
@@ -49,12 +53,10 @@
 <!-- COMMANDE -->
 <section class="contact">
     <h2>Commander / Nous contacter</h2>
-    <form action="mailto:tonemail@example.com" method="post" enctype="text/plain">
+    <form action="mailto:Sn.elmouatacim@gmail.com" method="post" enctype="text/plain">
         <input type="text" name="Nom" placeholder="Votre nom" required>
         <input type="tel" name="Téléphone" placeholder="Votre numéro" required>
-
         <textarea name="Commande" id="orderDetails" readonly></textarea>
-
         <button type="submit">Envoyer la commande</button>
     </form>
 </section>
