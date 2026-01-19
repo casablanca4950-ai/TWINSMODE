@@ -8,35 +8,58 @@
 </head>
 <body>
 
-<h1>🛍️ Twins Mode</h1>
+<header>
+    <h1>Twins Mode</h1>
+    <div>🛒 Panier : <span id="cart-count">0</span></div>
+</header>
 
 <!-- PRODUITS -->
-<div class="products">
+<section class="products">
     <div class="product">
+        <img src="jeans.jpg">
         <h3>Jeans</h3>
         <p>300 DH</p>
         <button onclick="addToCart('Jeans',300)">Ajouter</button>
     </div>
 
     <div class="product">
+        <img src="chemise.jpg">
         <h3>Chemise</h3>
         <p>200 DH</p>
         <button onclick="addToCart('Chemise',200)">Ajouter</button>
     </div>
 
     <div class="product">
+        <img src="robe.jpg">
         <h3>Robe</h3>
         <p>400 DH</p>
         <button onclick="addToCart('Robe',400)">Ajouter</button>
     </div>
-</div>
+</section>
 
 <!-- PANIER -->
-<div class="cart">
-    <h2>🛒 Panier</h2>
-    <ul id="cart-list"></ul>
-    <p><strong>Total :</strong> <span id="total">0</span> DH</p>
-</div>
+<section class="cart">
+    <h2>🛒 Votre panier</h2>
+    <ul id="cart-items"></ul>
+    <p class="total">Total : <span id="total">0</span> DH</p>
+</section>
+
+<!-- COMMANDE -->
+<section class="contact">
+    <h2>Commander / Nous contacter</h2>
+    <form action="mailto:tonemail@example.com" method="post" enctype="text/plain">
+        <input type="text" name="Nom" placeholder="Votre nom" required>
+        <input type="tel" name="Téléphone" placeholder="Votre numéro" required>
+
+        <textarea name="Commande" id="orderDetails" readonly></textarea>
+
+        <button type="submit">Envoyer la commande</button>
+    </form>
+</section>
+
+<footer>
+    © 2026 Twins Mode
+</footer>
 
 <script src="script.js"></script>
 </body>
