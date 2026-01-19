@@ -1,18 +1,43 @@
-body {
-    font-family: Arial, sans-serif;
+/* ============================= */
+/* RESET DE BASE */
+/* ============================= */
+* {
     margin: 0;
     padding: 0;
-    background: url('arrière-plan.jpg') no-repeat center center fixed;
+    box-sizing: border-box;
+}
+
+/* ============================= */
+/* BODY + BACKGROUND */
+/* ============================= */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+
+    /* BACKGROUND IMAGE */
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
     background-size: cover;
+    background-attachment: fixed;
+
     color: #333;
 }
 
+/* ============================= */
+/* HEADER */
+/* ============================= */
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgba(255,255,255,0.8);
-    padding: 10px 20px;
+
+    padding: 15px 25px;
+    background-color: rgba(255, 255, 255, 0.85);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo {
@@ -20,64 +45,145 @@ header {
     height: auto;
 }
 
+header h1 {
+    font-size: 26px;
+    color: #ff4081;
+}
+
+.cart {
+    font-weight: bold;
+}
+
+/* ============================= */
+/* PRODUITS */
+/* ============================= */
 .products {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 20px;
+    gap: 20px;
+
+    padding: 40px 20px;
 }
 
 .product {
-    background-color: rgba(255,255,255,0.9);
-    margin: 10px;
-    padding: 15px;
-    border-radius: 10px;
-    width: 200px;
+    width: 220px;
     text-align: center;
+
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 15px;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.product:hover {
+    transform: translateY(-5px);
 }
 
 .product img {
     width: 100%;
+    height: 220px;
+    object-fit: cover;
     border-radius: 10px;
 }
 
+.product h2 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+}
+
+.product p {
+    font-weight: bold;
+    color: #444;
+}
+
+/* ============================= */
+/* BOUTONS */
+/* ============================= */
 button {
-    padding: 10px;
     margin-top: 10px;
-   background-color: #ff4081;
-    color: white;
+    padding: 10px 15px;
+
+    background-color: #ff4081;
+    color: #fff;
+
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
+
+    font-size: 14px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #e91e63;
 }
 
+/* ============================= */
+/* FORMULAIRE */
+/* ============================= */
 .contact {
-    background-color: rgba(255,255,255,0.9);
-    margin: 20px auto;
-    padding: 20px;
-    width: 90%;
     max-width: 500px;
-    border-radius: 10px;
+    margin: 40px auto;
+
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
-.contact input, .contact textarea {
+.contact h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ff4081;
+}
+
+.contact label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contact input,
+.contact textarea {
     width: 100%;
-    margin: 5px 0 15px 0;
     padding: 10px;
-    border-radius: 5px;
+    margin-bottom: 15px;
+
     border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
 }
 
+.contact textarea {
+    resize: none;
+    height: 120px;
+}
+
+/* ============================= */
+/* FOOTER */
+/* ============================= */
 footer {
     text-align: center;
-    padding: 10px;
-    background-color: rgba(255,255,255,0.8);
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    padding: 15px;
+
+    background-color: rgba(255, 255, 255, 0.85);
+    margin-top: 30px;
+    font-size: 14px;
 }
 
+/* ============================= */
+/* RESPONSIVE MOBILE */
+/* ============================= */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 20px;
+    }
+
+    .product {
+        width: 90%;
+    }
+}
