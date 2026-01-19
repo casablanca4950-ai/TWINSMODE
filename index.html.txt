@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twins Mode</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Twins Mode" class="logo">
+        <h1>Twins Mode</h1>
+        <div class="cart">
+            <span>Panier: <span id="cart-count">0</span></span>
+        </div>
+    </header>
+
+    <main>
+        <section class="products">
+            <div class="product">
+                <img src="jeans.jpg" alt="Jeans">
+                <h2>Jeans</h2>
+                <p>Prix: 300 DH</p>
+                <button onclick="addToCart('Jeans', 300)">Ajouter au panier</button>
+            </div>
+            <div class="product">
+                <img src="chemise.jpg" alt="Chemise">
+                <h2>Chemise</h2>
+                <p>Prix: 200 DH</p>
+                <button onclick="addToCart('Chemise', 200)">Ajouter au panier</button>
+            </div>
+            <div class="product">
+                <img src="robe.jpg" alt="Robe">
+                <h2>Robe</h2>
+                <p>Prix: 400 DH</p>
+                <button onclick="addToCart('Robe', 400)">Ajouter au panier</button>
+            </div>
+            <!-- Tu peux ajouter d’autres produits ici -->
+        </section>
+
+        <section class="contact">
+            <h2>Commander / Nous contacter</h2>
+            <form id="orderForm" action="mailto:Sn.elmouatacim@gmail.com" method="post" enctype="text/plain">
+                <label>Nom :</label>
+                <input type="text" name="Nom" required>
+
+                <label>Email :</label>
+                <input type="email" name="Email" required>
+
+                <label>Numéro de téléphone :</label>
+                <input type="tel" name="Téléphone" required>
+
+                <label>Commande :</label>
+                <textarea name="Commande" id="orderDetails" readonly></textarea>
+
+                <button type="submit">Envoyer la commande</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Twins Mode - Tous droits réservés</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
