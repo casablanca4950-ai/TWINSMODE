@@ -7,15 +7,11 @@
 
 /* ===== BODY + BACKGROUND ===== */
 body {
-    font-family: Arial, sans-serif;
-    background-image: url("background.jpg"); /* image granit */
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    min-height: 100vh;
-    color: #222;
+    background-image: url("background.jpg");
+    background-size: cover;       /* couvre tout l’écran */
+    background-position: center;  /* centre l’image */
+    background-attachment: fixed; /* reste fixe en scrollant */
 }
-
 /* ===== HEADER ===== */
 header {
     background: rgba(255,64,129,0.95);
@@ -119,3 +115,4 @@ button:hover {
     font-weight: bold;
     margin-top: 10px;
 }
+
