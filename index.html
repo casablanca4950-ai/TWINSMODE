@@ -151,7 +151,7 @@ button:hover {
     text-align: right;
 }
 
-/* ===== CONTACT ===== */
+/* ===== CONTACT / WHATSAPP ===== */
 .contact {
     background: rgba(255,255,255,0.95);
     max-width: 520px;
@@ -159,31 +159,28 @@ button:hover {
     padding: 25px;
     border-radius: 15px;
     box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    text-align: center;
 }
 
-.contact input,
-.contact textarea {
-    width: 100%;
+.contact p {
     margin-bottom: 15px;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 1em;
+    font-weight: bold;
 }
 
-.contact button {
-    background: #ff4081;
-    font-weight: bold;
-    padding: 12px;
-    width: 100%;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+.whatsapp-button {
+    display:block;
+    padding:12px;
+    background:#25D366;
+    color:white;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+    margin-top:10px;
     transition: background 0.3s, transform 0.2s;
 }
 
-.contact button:hover {
-    background: #e73370;
+.whatsapp-button:hover {
+    background:#1DA851;
     transform: scale(1.05);
 }
 </style>
@@ -229,21 +226,19 @@ button:hover {
 </section>
 
 <section class="contact">
-    <h2>Commander / Nous contacter</h2>
-    <form action="mailto:Sn.elmouatacim@gmail.com" method="post" enctype="text/plain">
-        <input type="text" name="Nom" placeholder="Votre nom" required>
-        <input type="tel" name="Téléphone" placeholder="Votre numéro" required>
-        <textarea name="Commande" id="orderDetails" readonly></textarea>
-        <button type="submit">Envoyer la commande</button>
-    </form>
+    <p>Commander via WhatsApp :</p>
+    <a id="whatsappLink" href="#" target="_blank" class="whatsapp-button">
+        Envoyer la commande
+    </a>
 </section>
 
 <script>
+// ===== PANIER JS =====
 let cart = [];
 let cartItems = document.getElementById("cart-items");
 let cartCount = document.getElementById("cart-count");
 let totalEl = document.getElementById("total");
-let orderDetails = document.getElementById("orderDetails");
+let whatsappLink = document.getElementById("whatsappLink");
 
 function addToCart(name, price) {
     cart.push({ name, price });
@@ -258,11 +253,11 @@ function removeFromCart(index) {
 function updateCart() {
     cartItems.innerHTML = "";
     let total = 0;
-    let details = "";
+    let message = "Bonjour, je veux commander :%0A";
 
     cart.forEach((item, index) => {
         total += item.price;
-        details += item.name + " - " + item.price + " DH\n";
+        message += `${item.name} - ${item.price} DH%0A`;
 
         let li = document.createElement("li");
         li.innerHTML = `
@@ -274,7 +269,10 @@ function updateCart() {
 
     cartCount.textContent = cart.length;
     totalEl.textContent = total;
-    orderDetails.value = details + "\nTotal : " + total + " DH";
+    message += `Total : ${total} DH`;
+
+    // Mettre à jour le lien WhatsApp
+    whatsappLink.href = `https://wa.me/212XXXXXXXXX?text=${message}`;
 }
 </script>
 
