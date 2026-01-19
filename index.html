@@ -5,169 +5,108 @@
 <title>Twins Mode</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- GOOGLE FONT -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-/* ===== RESET ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+    font-family:'Roboto',Arial,sans-serif;
+    background:url("background.jpg") center/cover fixed;
+    min-height:100vh;
 }
 
-/* ===== BODY ===== */
-body {
-    font-family: 'Roboto', Arial, sans-serif;
-    background-image: url("background.jpg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    min-height: 100vh;
-    color: #222;
+header{
+    background:#ff4081;
+    color:white;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-/* ===== HEADER ===== */
-header {
-    background: rgba(255,64,129,0.95);
-    color: white;
-    padding: 20px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:15px;
 }
 
-.logo-area {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+.logo{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid white;
 }
 
-.logo {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #fff;
+.products{
+    display:flex;
+    flex-wrap:wrap;
+    gap:25px;
+    justify-content:center;
+    padding:30px;
 }
 
-/* ===== PRODUITS ===== */
-.products {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 25px;
-    padding: 40px 20px;
+.product{
+    background:white;
+    width:240px;
+    padding:15px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 6px 15px rgba(0,0,0,0.2);
 }
 
-.product {
-    background: rgba(255,255,255,0.95);
-    padding: 20px;
-    width: 240px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
+.product img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:10px;
 }
 
-.product:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+select,button{
+    width:100%;
+    padding:10px;
+    margin-top:8px;
+    border-radius:8px;
 }
 
-.product img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 15px;
-    margin-bottom: 10px;
+button{
+    background:#ff4081;
+    color:white;
+    border:none;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-.product h2 {
-    font-size: 1.2em;
-    margin-bottom: 5px;
+.cart,.contact{
+    background:white;
+    max-width:520px;
+    margin:20px auto;
+    padding:20px;
+    border-radius:15px;
 }
 
-.product p {
-    font-weight: bold;
-    margin-bottom: 10px;
+.cart ul{list-style:none}
+
+.cart li{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:8px;
 }
 
-select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 8px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
+.cart button{
+    background:red;
+    padding:5px 10px;
 }
 
-button {
-    margin-top: 10px;
-    padding: 12px;
-    width: 100%;
-    background: #ff4081;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s, transform 0.2s;
-}
-
-button:hover {
-    background: #e73370;
-    transform: scale(1.05);
-}
-
-/* ===== PANIER ===== */
-.cart {
-    background: rgba(255,255,255,0.95);
-    max-width: 520px;
-    margin: 30px auto;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-}
-
-.cart ul {
-    list-style: none;
-}
-
-.cart li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 5px;
-}
-
-.cart li button {
-    background: red;
-    padding: 4px 10px;
-    border-radius: 5px;
-}
-
-/* ===== CONTACT ===== */
-.contact {
-    background: rgba(255,255,255,0.95);
-    max-width: 520px;
-    margin: 30px auto 50px;
-    padding: 25px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-}
-
-.whatsapp-button {
-    display: block;
-    padding: 12px;
-    background: #25D366;
-    color: white;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
+.whatsapp{
+    background:#25D366;
+    color:white;
+    text-decoration:none;
+    display:block;
+    padding:12px;
+    border-radius:8px;
+    font-weight:bold;
 }
 </style>
 </head>
@@ -179,30 +118,15 @@ button:hover {
         <img src="logo.png" class="logo">
         <h1>Twins Mode</h1>
     </div>
-    <div>🛒 Panier : <span id="cart-count">0</span></div>
+    🛒 Panier : <span id="cart-count">0</span>
 </header>
 
 <section class="products">
 
+<!-- CHEMISE 1 -->
 <div class="product">
-    <img src="jeans.jpg">
-    <h2>Jeans</h2>
-    <p>300 DH</p>
-
-    <select class="taille">
-        <option>S</option><option>M</option><option>L</option><option>XL</option>
-    </select>
-
-    <select class="couleur">
-        <option>Noir</option><option>Bleu</option><option>Gris</option>
-    </select>
-
-    <button onclick="addToCart(this,'Jeans',300)">Ajouter</button>
-</div>
-
-<div class="product">
-    <img src="chemise.jpg">
-    <h2>Chemise</h2>
+    <img src="chemise1.jpg">
+    <h3>Chemise Classique</h3>
     <p>200 DH</p>
 
     <select class="taille">
@@ -213,12 +137,30 @@ button:hover {
         <option>Blanc</option><option>Noir</option><option>Bleu</option>
     </select>
 
-    <button onclick="addToCart(this,'Chemise',200)">Ajouter</button>
+    <button onclick="addToCart(this,'Chemise Classique',200)">Ajouter</button>
 </div>
 
+<!-- CHEMISE 2 -->
 <div class="product">
-    <img src="robe.jpg">
-    <h2>Robe</h2>
+    <img src="chemise2.jpg">
+    <h3>Chemise Moderne</h3>
+    <p>230 DH</p>
+
+    <select class="taille">
+        <option>S</option><option>M</option><option>L</option><option>XL</option>
+    </select>
+
+    <select class="couleur">
+        <option>Noir</option><option>Gris</option><option>Bleu</option>
+    </select>
+
+    <button onclick="addToCart(this,'Chemise Moderne',230)">Ajouter</button>
+</div>
+
+<!-- ROBE 1 -->
+<div class="product">
+    <img src="robe1.jpg">
+    <h3>Robe Élégante</h3>
     <p>400 DH</p>
 
     <select class="taille">
@@ -229,7 +171,24 @@ button:hover {
         <option>Rouge</option><option>Noir</option><option>Bleu</option>
     </select>
 
-    <button onclick="addToCart(this,'Robe',400)">Ajouter</button>
+    <button onclick="addToCart(this,'Robe Élégante',400)">Ajouter</button>
+</div>
+
+<!-- ROBE 2 -->
+<div class="product">
+    <img src="robe2.jpg">
+    <h3>Robe Moderne</h3>
+    <p>450 DH</p>
+
+    <select class="taille">
+        <option>S</option><option>M</option><option>L</option>
+    </select>
+
+    <select class="couleur">
+        <option>Vert</option><option>Noir</option><option>Rose</option>
+    </select>
+
+    <button onclick="addToCart(this,'Robe Moderne',450)">Ajouter</button>
 </div>
 
 </section>
@@ -241,55 +200,51 @@ button:hover {
 </section>
 
 <section class="contact">
-    <p>Commander via WhatsApp</p>
-    <a id="whatsappLink" href="#" class="whatsapp-button" target="_blank">
-        Envoyer la commande
+    <a id="whatsappLink" href="#" target="_blank" class="whatsapp">
+        Commander via WhatsApp
     </a>
 </section>
 
 <script>
-let cart = [];
-let cartItems = document.getElementById("cart-items");
-let cartCount = document.getElementById("cart-count");
-let totalEl = document.getElementById("total");
-let whatsappLink = document.getElementById("whatsappLink");
+let cart=[];
+let cartItems=document.getElementById("cart-items");
+let cartCount=document.getElementById("cart-count");
+let totalEl=document.getElementById("total");
+let whatsappLink=document.getElementById("whatsappLink");
 
-function addToCart(button, name, price) {
-    let product = button.parentElement;
-    let taille = product.querySelector(".taille").value;
-    let couleur = product.querySelector(".couleur").value;
-
-    cart.push({name, price, taille, couleur});
+function addToCart(btn,name,price){
+    let p=btn.parentElement;
+    let taille=p.querySelector(".taille").value;
+    let couleur=p.querySelector(".couleur").value;
+    cart.push({name,price,taille,couleur});
     updateCart();
 }
 
-function removeFromCart(index) {
-    cart.splice(index, 1);
+function removeFromCart(i){
+    cart.splice(i,1);
     updateCart();
 }
 
-function updateCart() {
-    cartItems.innerHTML = "";
-    let total = 0;
-    let msg = "Bonjour, je veux commander :%0A";
+function updateCart(){
+    cartItems.innerHTML="";
+    let total=0;
+    let msg="Bonjour, je veux commander:%0A";
 
-    cart.forEach((item, i) => {
-        total += item.price;
-        msg += `${item.name} | ${item.taille} | ${item.couleur} - ${item.price} DH%0A`;
+    cart.forEach((item,i)=>{
+        total+=item.price;
+        msg+=`${item.name} | ${item.taille} | ${item.couleur} - ${item.price} DH%0A`;
 
-        let li = document.createElement("li");
-        li.innerHTML = `
-            ${item.name} (${item.taille}, ${item.couleur}) - ${item.price} DH
-            <button onclick="removeFromCart(${i})">X</button>
-        `;
+        let li=document.createElement("li");
+        li.innerHTML=`${item.name} (${item.taille}, ${item.couleur}) - ${item.price} DH
+        <button onclick="removeFromCart(${i})">X</button>`;
         cartItems.appendChild(li);
     });
 
-    cartCount.textContent = cart.length;
-    totalEl.textContent = total;
-    msg += `Total : ${total} DH`;
+    cartCount.textContent=cart.length;
+    totalEl.textContent=total;
+    msg+=`Total: ${total} DH`;
 
-    whatsappLink.href = `https://wa.me/212662401126?text=${msg}`;
+    whatsappLink.href=`https://wa.me/212662401126?text=${msg}`;
 }
 </script>
 
