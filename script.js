@@ -1,21 +1,20 @@
 let cart = [];
-let cartItems = document.getElementById("cart-items");
-let cartCount = document.getElementById("cart-count");
-let totalEl = document.getElementById("total");
-let orderDetails = document.getElementById("orderDetails");
 
 function addToCart(name, price) {
     cart.push({ name, price });
-    updateCart();
+    showCart();
 }
 
 function removeFromCart(index) {
     cart.splice(index, 1);
-    updateCart();
+    showCart();
 }
 
-function updateCart() {
-    cartItems.innerHTML = "";
+function showCart() {
+    let cartList = document.getElementById("cart-list");
+    let totalEl = document.getElementById("total");
+
+    cartList.innerHTML = "";
     let total = 0;
 
     cart.forEach((item, index) => {
@@ -24,19 +23,10 @@ function updateCart() {
         let li = document.createElement("li");
         li.innerHTML = `
             ${item.name} - ${item.price} DH
-            <button onclick="removeFromCart(${index})">X</button>
+            <button onclick="removeFromCart(${index})">Supprimer</button>
         `;
-        cartItems.appendChild(li);
+        cartList.appendChild(li);
     });
 
-    cartCount.textContent = cart.length;
     totalEl.textContent = total;
-
-    let details = "";
-    cart.forEach(item => {
-        details += item.name + " - " + item.price + " DH\n";
-    });
-    details += "\nTotal : " + total + " DH";
-
-    orderDetails.value = details;
 }
