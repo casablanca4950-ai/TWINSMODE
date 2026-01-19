@@ -5,15 +5,18 @@
 <title>Twins Mode</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- GOOGLE FONT -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
+/* ===== RESET ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* ===== BODY ===== */
 body {
     font-family: 'Roboto', Arial, sans-serif;
     background-image: url("background.jpg");
@@ -21,8 +24,10 @@ body {
     background-position: center;
     background-attachment: fixed;
     min-height: 100vh;
+    color: #222;
 }
 
+/* ===== HEADER ===== */
 header {
     background: rgba(255,64,129,0.95);
     color: white;
@@ -30,6 +35,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
 .logo-area {
@@ -46,40 +52,59 @@ header {
     border: 3px solid #fff;
 }
 
+/* ===== PRODUITS ===== */
 .products {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 25px;
     padding: 40px 20px;
 }
 
 .product {
-    background: white;
+    background: rgba(255,255,255,0.95);
     padding: 20px;
-    width: 260px;
+    width: 240px;
     border-radius: 15px;
     text-align: center;
     box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
 .product img {
     width: 100%;
     height: 200px;
-    border-radius: 15px;
     object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.product h2 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.product p {
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 select {
     width: 100%;
     padding: 8px;
-    margin-top: 8px;
+    margin-bottom: 8px;
     border-radius: 6px;
+    border: 1px solid #ccc;
 }
 
 button {
-    margin-top: 12px;
-    padding: 10px;
+    margin-top: 10px;
+    padding: 12px;
     width: 100%;
     background: #ff4081;
     color: white;
@@ -87,14 +112,22 @@ button {
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
 }
 
-.cart, .contact {
-    background: white;
+button:hover {
+    background: #e73370;
+    transform: scale(1.05);
+}
+
+/* ===== PANIER ===== */
+.cart {
+    background: rgba(255,255,255,0.95);
     max-width: 520px;
-    margin: 25px auto;
-    padding: 20px;
+    margin: 30px auto;
+    padding: 25px;
     border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
 .cart ul {
@@ -104,26 +137,37 @@ button {
 .cart li {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    align-items: center;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
 }
 
 .cart li button {
     background: red;
-    color: white;
-    border: none;
+    padding: 4px 10px;
     border-radius: 5px;
-    padding: 3px 8px;
+}
+
+/* ===== CONTACT ===== */
+.contact {
+    background: rgba(255,255,255,0.95);
+    max-width: 520px;
+    margin: 30px auto 50px;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
 .whatsapp-button {
-    display:block;
-    background:#25D366;
-    color:white;
-    padding:12px;
-    text-align:center;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:bold;
+    display: block;
+    padding: 12px;
+    background: #25D366;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
 }
 </style>
 </head>
@@ -140,29 +184,53 @@ button {
 
 <section class="products">
 
-    <!-- PRODUIT -->
-    <div class="product">
-        <img src="jeans.jpg">
-        <h2>Jeans</h2>
-        <p>300 DH</p>
+<div class="product">
+    <img src="jeans.jpg">
+    <h2>Jeans</h2>
+    <p>300 DH</p>
 
-        <select id="taille-jeans">
-            <option value="S">S</option>
-            <option value="M">M</option>
-            <option value="L">L</option>
-            <option value="XL">XL</option>
-        </select>
+    <select class="taille">
+        <option>S</option><option>M</option><option>L</option><option>XL</option>
+    </select>
 
-        <select id="couleur-jeans">
-            <option value="Noir">Noir</option>
-            <option value="Bleu">Bleu</option>
-            <option value="Gris">Gris</option>
-        </select>
+    <select class="couleur">
+        <option>Noir</option><option>Bleu</option><option>Gris</option>
+    </select>
 
-        <button onclick="addToCart('Jeans',300,'taille-jeans','couleur-jeans')">
-            Ajouter
-        </button>
-    </div>
+    <button onclick="addToCart(this,'Jeans',300)">Ajouter</button>
+</div>
+
+<div class="product">
+    <img src="chemise.jpg">
+    <h2>Chemise</h2>
+    <p>200 DH</p>
+
+    <select class="taille">
+        <option>S</option><option>M</option><option>L</option><option>XL</option>
+    </select>
+
+    <select class="couleur">
+        <option>Blanc</option><option>Noir</option><option>Bleu</option>
+    </select>
+
+    <button onclick="addToCart(this,'Chemise',200)">Ajouter</button>
+</div>
+
+<div class="product">
+    <img src="robe.jpg">
+    <h2>Robe</h2>
+    <p>400 DH</p>
+
+    <select class="taille">
+        <option>S</option><option>M</option><option>L</option>
+    </select>
+
+    <select class="couleur">
+        <option>Rouge</option><option>Noir</option><option>Bleu</option>
+    </select>
+
+    <button onclick="addToCart(this,'Robe',400)">Ajouter</button>
+</div>
 
 </section>
 
@@ -173,8 +241,8 @@ button {
 </section>
 
 <section class="contact">
-    <p>Commander via WhatsApp :</p>
-    <a id="whatsappLink" class="whatsapp-button" target="_blank">
+    <p>Commander via WhatsApp</p>
+    <a id="whatsappLink" href="#" class="whatsapp-button" target="_blank">
         Envoyer la commande
     </a>
 </section>
@@ -186,11 +254,12 @@ let cartCount = document.getElementById("cart-count");
 let totalEl = document.getElementById("total");
 let whatsappLink = document.getElementById("whatsappLink");
 
-function addToCart(name, price, tailleId, couleurId) {
-    let taille = document.getElementById(tailleId).value;
-    let couleur = document.getElementById(couleurId).value;
+function addToCart(button, name, price) {
+    let product = button.parentElement;
+    let taille = product.querySelector(".taille").value;
+    let couleur = product.querySelector(".couleur").value;
 
-    cart.push({ name, price, taille, couleur });
+    cart.push({name, price, taille, couleur});
     updateCart();
 }
 
@@ -202,25 +271,25 @@ function removeFromCart(index) {
 function updateCart() {
     cartItems.innerHTML = "";
     let total = 0;
-    let message = "Bonjour, je veux commander :%0A";
+    let msg = "Bonjour, je veux commander :%0A";
 
-    cart.forEach((item, index) => {
+    cart.forEach((item, i) => {
         total += item.price;
-        message += `${item.name} | Taille: ${item.taille} | Couleur: ${item.couleur} - ${item.price} DH%0A`;
+        msg += `${item.name} | ${item.taille} | ${item.couleur} - ${item.price} DH%0A`;
 
         let li = document.createElement("li");
         li.innerHTML = `
             ${item.name} (${item.taille}, ${item.couleur}) - ${item.price} DH
-            <button onclick="removeFromCart(${index})">X</button>
+            <button onclick="removeFromCart(${i})">X</button>
         `;
         cartItems.appendChild(li);
     });
 
     cartCount.textContent = cart.length;
     totalEl.textContent = total;
-    message += `Total : ${total} DH`;
+    msg += `Total : ${total} DH`;
 
-    whatsappLink.href = `https://wa.me/212662401126?text=${message}`;
+    whatsappLink.href = `https://wa.me/212662401126?text=${msg}`;
 }
 </script>
 
