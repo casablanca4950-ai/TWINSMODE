@@ -3,58 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <title>Twins Mode</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
-    <div class="logo-area">
-        <img src="logo.png" class="logo">
-        <h1>Twins Mode</h1>
-    </div>
-    <div class="cart-icon">
+    <h1>Twins Mode</h1>
+    <div class="cart-info">
         🛒 Panier : <span id="cart-count">0</span>
     </div>
 </header>
 
+<!-- PRODUITS -->
 <section class="products">
-    <h2>Nos Produits</h2>
-
     <div class="product">
-        <h3>Jean Bleu</h3>
-        <p>199 DH</p>
-        <button onclick="addToCart('Jean Bleu',199)">Ajouter</button>
+        <img src="jeans.jpg">
+        <h2>Jeans</h2>
+        <p>300 DH</p>
+        <button onclick="addToCart('Jeans',300)">Ajouter</button>
     </div>
 
     <div class="product">
-        <h3>Chemise Blanche</h3>
-        <p>149 DH</p>
-        <button onclick="addToCart('Chemise Blanche',149)">Ajouter</button>
+        <img src="chemise.jpg">
+        <h2>Chemise</h2>
+        <p>200 DH</p>
+        <button onclick="addToCart('Chemise',200)">Ajouter</button>
     </div>
 
     <div class="product">
-        <h3>Robe Élégante</h3>
-        <p>249 DH</p>
-        <button onclick="addToCart('Robe Élégante',249)">Ajouter</button>
+        <img src="robe.jpg">
+        <h2>Robe</h2>
+        <p>400 DH</p>
+        <button onclick="addToCart('Robe',400)">Ajouter</button>
     </div>
 </section>
 
+<!-- PANIER -->
 <section class="cart">
-    <h2>🛒 Panier</h2>
+    <h2>🛒 Votre Panier</h2>
     <ul id="cart-items"></ul>
-    <p><strong>Total :</strong> <span id="total">0</span> DH</p>
+    <p class="total">Total : <span id="total">0</span> DH</p>
 </section>
 
+<!-- COMMANDE -->
 <section class="contact">
-    <h2>📞 Confirmer la commande</h2>
+    <h2>Commander / Nous contacter</h2>
+    <form action="mailto:tonemail@example.com" method="post" enctype="text/plain">
+        <input type="text" name="Nom" placeholder="Votre nom" required>
+        <input type="tel" name="Téléphone" placeholder="Votre numéro" required>
 
-    <form>
-        <input type="text" placeholder="Nom complet" required>
-        <input type="tel" placeholder="Numéro de téléphone" required>
-        <input type="email" value="Sn.elmouatacim@gmail.com" readonly>
-        <textarea placeholder="Message (produits choisis)"></textarea>
-        <button type="submit">Envoyer</button>
+        <textarea name="Commande" id="orderDetails" readonly></textarea>
+
+        <button type="submit">Envoyer la commande</button>
     </form>
 </section>
 
